@@ -1,1 +1,1 @@
-# is310-final-project
+This is the IS310 final project repo
