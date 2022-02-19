@@ -1,3 +1,5 @@
 import pandas as pd
+from first_python_assignment import *
 
-a = open('/Users/fafnir/vs/is310_final_project/HW Folder/tools_dh_proceedings.csv')
+a = pd.read_csv('tools_dh_proceedings.csv').sort_values('2019', ascending= False)
+a

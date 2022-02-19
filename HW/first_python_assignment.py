@@ -37,18 +37,19 @@ new_dict = dict(
 })
 
 print(new_dict)
-df = pd.DataFrame(new_dict)
+df = pd.DataFrame(new_dict).T
 print(df)  # Use panda to construct a DataFrame
 
 # Task 2:
 # Update the data structure to keep a count for overall (that is culminative)
 # popularity of each tool over the five years.
 
-for item in new_dict:
-    new_dict[item]['Sum_over_five_yrs'] = sum(new_dict[item].values())
+a = df.sum(1)
+print(type(a), a)
 
-new_df = pd.DataFrame(new_dict)
+new_df = df.merge(a, df)
 print(new_df)
+
 
 # Task 3:
 # Print out the 2015, 2019, and overall values for each tool.
