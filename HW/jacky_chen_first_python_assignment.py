@@ -37,9 +37,9 @@ new_dict = dict(
     '2019': 9
 })
 
-print(new_dict)
+print("\nPrint dictionary: \n", new_dict)
 df = pd.DataFrame(new_dict).T
-print(df)  # Use panda to construct a DataFrame
+print("\nPrint dataframe: \n", df)  # Use panda to construct a DataFrame
 
 # Task 2:
 # Update the data structure to keep a count for overall (that is culminative)
@@ -47,12 +47,15 @@ print(df)  # Use panda to construct a DataFrame
 
 a = df.sum(1)
 df['Sum_over_five_yrs'] = a
-print(df)
+print("\nPrint sum dataframe: \n", df)
 
 # Task 3:
 # Print out the 2015, 2019, and overall values for each tool.
 
-print(df.loc[:, ['2015', '2019', 'Sum_over_five_yrs']])
+print("\nPrint selected years dataframe: \n", df.loc[:, ['2015', '2019', 'Sum_over_five_yrs']])
+
+def fin_df():
+    return df
 
 
 
