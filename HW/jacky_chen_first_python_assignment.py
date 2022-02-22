@@ -1,3 +1,4 @@
+from hashlib import new
 import pandas as pd
 
 # Task 1:
@@ -45,16 +46,13 @@ print(df)  # Use panda to construct a DataFrame
 # popularity of each tool over the five years.
 
 a = df.sum(1)
-print(type(a), a)
-
-new_df = df.merge(a, df)
-print(new_df)
-
+df['Sum_over_five_yrs'] = a
+print(df)
 
 # Task 3:
 # Print out the 2015, 2019, and overall values for each tool.
 
-print(new_df.loc[['2015', '2019', 'Sum_over_five_yrs'], :])
+print(df.loc[:, ['2015', '2019', 'Sum_over_five_yrs']])
 
 
 
