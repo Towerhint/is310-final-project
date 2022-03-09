@@ -39,11 +39,9 @@ April 4 – April 17
 -	Continue with the study of TOP
 
 April 18 – May 1
--	To integrate the demos with the research project 
+-	To integrate the demos with the research report 
 -	To provide a tool to help people to access information using computing
 
 May 1 – May 10
 -	To work on the presentation
 -	To work on the final project submission
-
-
