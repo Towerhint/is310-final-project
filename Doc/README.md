@@ -1,5 +1,5 @@
 ## Information Accessibility for Non-Dominant Languages Users
-### By Zhangheng Chen, 2022
+#### By Zhangheng Chen, 2022
 
 ### Abstract
 
@@ -19,25 +19,29 @@ o	Here is the key: Google, Bing and other search engines have done a great job f
 
 ### Readings that sparked idea
 
--	Shaping Ideas into Data Stories
--	“Why Are the Digital Humanities So White? or Thinking the Histories of Race and Computation”
--	Slave Voyages
--	Data Biographies: Getting to Know Your Data.
+-	[Shaping Ideas into Data Stories](https://www.youtube.com/watch?v=J3Awc4HxDK0)
+-	[“Why Are the Digital Humanities So White? or Thinking the Histories of Race and Computation”](https://dhdebates.gc.cuny.edu/read/untitled-88c11800-9446-469b-a3be-3fdb36bfbd1e/section/20df8acd-9ab9-4f35-8a5d-e91aa5f4a0ea#ch09)
+-	[Slave Voyages](https://www.slavevoyages.org/)
+-	[Data Biographies: Getting to Know Your Data.](https://gijn.org/2017/03/27/data-biographies-getting-to-know-your-data/)
 
 ### Proposal Timeline
 
 March 8 – March 20
 -	To work on exploring the articles of information accessing for the non-dominant language users
 -	To study the web development with TOP (the Odin Project)
+
 May 21 – April 3
 -	To draft a research report and plan on the demos to demonstrate the data
 -	Continue with study of TOP
+
 April 4 – April 17
 -	To make three demos in presenting the difficulties of accessing data
 -	Continue with the study of TOP
+
 April 18 – May 1
 -	To integrate the demos with the research project 
 -	To provide a tool to help people to access information using computing
+
 May 1 – May 10
 -	To work on the presentation
 -	To work on the final project submission
