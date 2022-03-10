@@ -3,6 +3,7 @@
 # Step 0: Import libraries
 
 from bs4 import BeautifulSoup
+from isort import file
 import requests
 
 def scrape_screenplay(url):
@@ -10,55 +11,59 @@ def scrape_screenplay(url):
     html_string = response.text
     return html_string
 
-# Step 1: Get data and generate content
+# Step 1: Create a function for getting the urls wuth title
 
-content = scrape_screenplay("https://humanist.kdl.kcl.ac.uk/")
+def getContent(url='', keyword='', url_head="https://humanist.kdl.kcl.ac.uk", filename=''):
+    content = scrape_screenplay(url)
+    soup = BeautifulSoup(content, "html.parser")
+    links = soup.find_all('a')
 
-soup = BeautifulSoup(content, "html.parser")
-# print(soup.prettify())
+    linkList = []
+    volumeList = []
 
-links = soup.find_all('a')
-# print(links)
+    for link in links:
+        text = link.get_text().lower()
+        if keyword in text:
+            linkList.append(url_head + link.get('href'))
+            volumeList.append(text)
 
-# Step 2: Put data into two lists and merge them into content
+    res = dict(zip(volumeList, linkList))
 
-linkList = []
-volumeList = []
+    # Saving into new py doc
 
-for link in links:
-    text = link.get_text().lower()
-    if 'volume' in text:
-        linkList.append("https://humanist.kdl.kcl.ac.uk" + link.get('href'))
-        volumeList.append(text)
+    file = open(filename, 'w')
+    file.write(str(res))
+    file.close
 
-res = dict(zip(volumeList, linkList))
+    return res
 
-# For final formatting
+res = getContent(
+    url="https://humanist.kdl.kcl.ac.uk/",
+    keyword="volume",
+    filename="main_page.py")
 
-# for key, value in res.items():
-#     print(key, ':', value)
-
-# Step 3: Calling the first url and save the text
-
-temp = scrape_screenplay(url=res['volume 1 5/87-5/88'])
-# print(temp)
-
-soup_temp = BeautifulSoup(temp, "html.parser")
-# print(soup_temp.prettify())
-
-links_temp = soup_temp.find_all('a')
-# print(links_temp)
-
-linkT = []
-volumeT = []
-
-for link in links_temp:
-    text = link.get_text().lower()
-    if 'txt' in text:
-        linkT.append("https://humanist.kdl.kcl.ac.uk/Archives/Virginia/v01/" + link.get('href'))
-        volumeT.append(text)
-
-resT = dict(zip(volumeT, linkT))
-
-for key, value in resT.items():
+print("Printing the main page:\n")
+for key, value in res.items():
     print(key, ':', value)
+
+# Step 2: Calling two url and save the text
+
+res_v1 = getContent(
+    url=res['volume 1 5/87-5/88'],
+    keyword="txt",
+    url_head="https://humanist.kdl.kcl.ac.uk/Archives/Virginia/v01/",
+    filename="1st_volume.py")
+
+res_v33 = getContent(
+    url=res['volume 33'],
+    keyword="humanist",
+    filename="33rd_volume.py")
+
+print("\nPrinting the 1st volume:\n")
+for key, value in res_v1.items():
+    print(key, ':', value)
+
+print("\nPrinting the 33rd volume:\n")
+for key, value in res_v33.items():
+    print(key, ':', value)
+
