@@ -5,6 +5,7 @@
 from bs4 import BeautifulSoup
 from isort import file
 import requests
+import json
 
 def scrape_screenplay(url):
     response = requests.get(url)
@@ -31,16 +32,15 @@ def getContent(url='', keyword='', url_head="https://humanist.kdl.kcl.ac.uk", fi
 
     # Saving into new py doc
 
-    file = open(filename, 'w')
-    file.write(str(res))
-    file.close
+    with open(filename, 'w') as file:
+        file.write(json.dumps(res, indent=2))
 
     return res
 
 res = getContent(
     url="https://humanist.kdl.kcl.ac.uk/",
     keyword="volume",
-    filename="main_page.py")
+    filename="main_page.txt")
 
 print("Printing the main page:\n")
 for key, value in res.items():
@@ -52,12 +52,12 @@ res_v1 = getContent(
     url=res['volume 1 5/87-5/88'],
     keyword="txt",
     url_head="https://humanist.kdl.kcl.ac.uk/Archives/Virginia/v01/",
-    filename="1st_volume.py")
+    filename="1st_volume.txt")
 
 res_v33 = getContent(
     url=res['volume 33'],
     keyword="humanist",
-    filename="33rd_volume.py")
+    filename="33rd_volume.txt")
 
 print("\nPrinting the 1st volume:\n")
 for key, value in res_v1.items():
