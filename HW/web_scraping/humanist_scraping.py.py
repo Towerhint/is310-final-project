@@ -3,7 +3,6 @@
 # Step 0: Import libraries
 
 from bs4 import BeautifulSoup
-from isort import file
 import requests
 import json
 
