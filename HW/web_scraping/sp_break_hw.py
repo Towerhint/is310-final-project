@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 
-
 # Extract all the files 
 
 file = open('/Users/fafnir/Documents/GitHub/is310_final_project/HW/web_scraping/raw_script_urls.txt', 'r')  # Note that the path may need some changes(may add pathlib in the future)
@@ -22,7 +21,12 @@ def getText(url):
 
 # We need to get the body from these texts
 
-for item in url[0]:
+final = {}
+
+for item in url[0:50]:
     text = getText(item[1])
     document = BeautifulSoup(text, "html.parser")
-    print(document)
+    final[item[0]] = document
+
+f = open('result.txt', 'w')
+f.write(str(final))
