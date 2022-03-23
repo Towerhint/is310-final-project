@@ -60,10 +60,28 @@ res_v33 = get_content(
     keyword="humanist",
     filename="33rd_volume.txt")
 
-print("\nPrinting the 1st volume:\n")
-for key, value in res_v1.items():
-    print(key, ':', value)
+# print("\nPrinting the 1st volume:\n")
+# for key, value in res_v1.items():
+#     print(key, ':', value)
 
-print("\nPrinting the 33rd volume:\n")
-for key, value in res_v33.items():
-    print(key, ':', value)
+# print("\nPrinting the 33rd volume:\n")
+# for key, value in res_v33.items():
+#     print(key, ':', value)
+
+# Parse the text in each link
+
+count = 0
+final = {}
+
+for key, value in res_v1.items():
+    content = scrape_webpage(value)
+    soup = BeautifulSoup(content, "html.parser")
+    text = soup.get_text()
+    with open('text_1st_volume.txt', 'w') as file:
+        file.write(text)
+
+    # too long need to break
+    count += 1
+    if count == 1: break
+
+# print(final)
