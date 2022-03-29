@@ -33,8 +33,8 @@ def get_content(url='', keyword='', url_head="https://humanist.kdl.kcl.ac.uk", f
 
     # Saving into new py doc
 
-    with open(filename, 'w') as file:
-        file.write(json.dumps(result, indent=2))
+    # with open(filename, 'w') as file:
+    #     file.write(json.dumps(result, indent=2))
 
     return result
 

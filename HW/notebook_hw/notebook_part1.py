@@ -15,24 +15,24 @@ from humanist_scraping import res_v1, scrape_webpage
 from bs4 import BeautifulSoup
 import pandas as pd
 
-print("\nPrinting the 1st volume:\n")
-for key, value in res_v1.items():
-    print(key, ':', value)
+# print("\nPrinting the 1st volume:\n")
+# for key, value in res_v1.items():
+#     print(key, ':', value)
 
 count = 0
-final = {}
+final = []
 
 for key, value in res_v1.items():
     content = scrape_webpage(value)
     soup = BeautifulSoup(content, "html.parser")
-    text = soup.get_text()
+    text = soup.get_text()[:10]
     # with open('text_1st_volume.txt', 'w') as file:
     #     file.write(text)
-    final[key] = text
+    # final[key] = text
+    final_dict = {}
+    final_dict["key"] = key
+    final_dict["value"] = text
+    final.append(final_dict)
 
-    # too long need to break
-    count += 1
-    if count == 1: break
-
-df = pd.DataFrame.from_dict(final, orient='index')
+df = pd.DataFrame(final)
 print(df)
