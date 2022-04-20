@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import json
 
 # Extract all the files 
 
@@ -26,7 +27,7 @@ final = {}
 for item in url[0:50]:
     text = getText(item[1])
     document = BeautifulSoup(text, "html.parser")
-    final[item[0]] = document
+    final[item[0]] = str(document)
 
-f = open('result.txt', 'w')
-f.write(str(final))
+with open('result.json', 'w') as file:
+        file.write(json.dumps(final, indent=2))
