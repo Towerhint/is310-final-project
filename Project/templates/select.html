@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block body %}
+
+    <h1> Knowledge Explorer </h1>
+    <form action="/language" method='GET'>
+        <input autofocus name="name" placeholder="Anything you'd like to explore" required type="text" style="width: 200px">
+        <select name="database">
+            {% for item in database %}
+                <option> {{ item }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit">
+    </form>
+
+{% endblock %}

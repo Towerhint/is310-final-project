@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <h1>Result Page</h1>
+    <h2>{{ name }} {{ database }}</h2>
+
+    {% for item in dpla_data %}
+
+        <h3>From:{{ item['Data provider']['name'] }}</h3>
+        Description:{{ item['More info'][0] }}
+
+        <a href={{ item['Url of where it comes from'] }} target="_blank"><img src={{ item['Image'] }} width='300' height='225'/></a>
+
+    {% endfor %}
+
+{% endblock %}

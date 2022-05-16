@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    {% for item in dress %}
+
+        <a href={{ item }} target="_blank"><img src={{ item }} /></a>
+
+    {% endfor %}
+
+{% endblock %}
